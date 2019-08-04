@@ -1,0 +1,4 @@
+process notes for express router study
+======================================
+    o   What is express router?  When you create routes to the endpoints in your application, often times the routes can 
+        
