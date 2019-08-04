@@ -1,0 +1,17 @@
+{
+  "name": "study-express-router",
+  "version": "1.0.0",
+  "description": "Basic study on router functionality",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "router"
+  ],
+  "author": "john azzaro",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
