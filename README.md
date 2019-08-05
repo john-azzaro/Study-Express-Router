@@ -22,7 +22,7 @@ In an express application, when you want to create a "router" and "modularize" y
 ```JavaScript  
      app.use('./myList', myListRouter);
 ```
-Third, in your new router file (e.g. myListRouter.js), load express and router:
+**Third**, in your new router file (e.g. myListRouter.js), load express and router:
 
 ```JavaScript
      const express = require('express');
