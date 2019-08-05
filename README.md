@@ -9,12 +9,16 @@ The "Express Router Study" examines the Router functionality in express applicat
 
 In an express application, when you want to create a "router" and "modularize" your routes, you need to follow relatively streamlined process that can be done for as many route groups as needed.
 
-First, in your server.js file you import your router file(s):
+<br>
+
+## How do you setup an express router?
+
+**First**, in your server.js file you import your router file(s):
 ```JavaScript  
     const shoppingListRouter = require('./myListRouter');                         
 ```
 
-Second, (still in your server.js file), use "app.use" to route the request to the right ROUTER:
+**Second**, (still in your server.js file), use "app.use" to route the request to the right ROUTER:
 ```JavaScript  
      app.use('./myList', myListRouter);
 ```
@@ -24,8 +28,7 @@ Third, in your new router file (e.g. myListRouter.js), load express and router:
      const express = require('express');
      const router = express.Router();
 ```
-Fourth, when you setup routes within this router file, use "/":
-  o Note that in this example, "List.get" refers to a model imported earlier (e.g. const {List} = require('./models');)
+**Fourth**, when you setup routes within this router file, use "/".  Note that in this example, "List.get" refers to a model imported earlier (e.g. const {List} = require('./models');)
 
 ```JavaScript
       router.get('/', (req, res) => {
@@ -33,7 +36,7 @@ Fourth, when you setup routes within this router file, use "/":
       });
 ```
 
-Fifth, setup a router instance at the bottom of the file:
+**Fifth**, setup a router instance at the bottom of the file:
 ```JavaScript  
       module.exports = router;  
 ```
