@@ -24,6 +24,13 @@ PHASE 1: Setup server.js to route requests to the new modules
             app.use('./recipes', recipesRouter);                  <== This says that any request to "recipes" will be routed to recipesRouter.
 
 
+    STEP 4: Additionally, you want to import other middleware as well, such as body-parser and jsonParser
+    ======================================================================================================
+
+            const bodyParser = require('body-parser');
+            const jsonParser = bodyParser.json();
+
+
 
 PHASE 2: Setup each new "router" file:
 ======================================
@@ -33,4 +40,48 @@ PHASE 2: Setup each new "router" file:
             const express = require('express');
             const router = express.Router();
 
-    STEP 2: Then, setup individual routes to this router.
+    STEP 2: Then, setup individual routes to this router with a route of "/" instead of "recipes" or "shopping-list".
+        o   For example, a GET request would look like thid:
+
+            router.get('/', (req, res) => {
+                res.json
+            });
+
+
+    STEP 3: Setup your router instance at the bottom of the file:
+
+            module.exports = router;
+
+
+    So what's happenig here?  When a client sends a GET request to "recipes", the request passes through the middleware (i.e. morgan and static)
+    and then is matched to the /recipes endpoint "app.use('/recipes', recipesRouter)".  This then points to the recipesRouter module.  Now that
+    we are inside the recipesRouter module, the request is then matched with the handler inside:
+
+            router.get('/', (req, res) => {
+                res.json(Recipes.get());
+            });
+
+    THEN, this handler points to models.js module where the recipes are via the module we loaded at the top of the file:
+
+           const {Recipes} = require('./models');
+
+
+
+
+
+
+
+
+
+
+
+    o   Special note: in this application we are using a "views" folder in server.js:
+
+            app.get('/', (req, res) => {
+                res.sendFile(_dirname + '/views/index.html')
+            });
+
+    o   
+
+        
+
