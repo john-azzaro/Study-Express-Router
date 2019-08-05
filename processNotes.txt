@@ -1,4 +1,36 @@
 process notes for express router study
 ======================================
     o   What is express router?  When you create routes to the endpoints in your application, often times the routes can 
+        clutter up your server.js file.  To keep the server.js file a little bit cleaner, you can modularize the application
+        endpoints.
+    o   In the example taken from Thinkful's shopping list application, the routers have been seperated from the server.js file
+        and put into too different files: shoppingListRouter.js and recipesRouter.js.
+
+
+PHASE 1: Setup server.js to route requests to the new modules
+==============================================================
+    
+    STEP 1: In server.js, we need to IMPORT the two router files.
+    ================================================================
         
+            const shoppingListRouter = require('./shoppingListRouter');              <== Import the shoppingListRouter module
+            const recipesRouter = require('./recipesRouter');                        <== Import the recipesRouter
+
+
+    STEP 2: Next (still in server.js), use "app.use" to route requests to the right router.
+    ========================================================================================
+
+            app.use('./shopping-list', shoppingListRouter);       <== This says that any request to "shopping-list" will be routed to shoppingListRouter.
+            app.use('./recipes', recipesRouter);                  <== This says that any request to "recipes" will be routed to recipesRouter.
+
+
+
+PHASE 2: Setup each new "router" file:
+======================================
+
+    STEP 1: In each of the new "routers", you need to load express and then express.Router:
+
+            const express = require('express');
+            const router = express.Router();
+
+    STEP 2: Then, setup individual routes to this router.
