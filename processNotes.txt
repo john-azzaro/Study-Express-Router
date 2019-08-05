@@ -44,8 +44,10 @@ PHASE 2: Setup each new "router" file:
         o   For example, a GET request would look like thid:
 
             router.get('/', (req, res) => {
-                res.json
+                res.json(Recipes.get());
             });
+
+        o   Note that for Recipes.get, this pertains to the "recipes" we imported at the top of this file with "const {Recipes} = require('./models');".
 
 
     STEP 3: Setup your router instance at the bottom of the file:
