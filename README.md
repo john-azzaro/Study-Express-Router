@@ -15,7 +15,7 @@ In an express application, when you want to create a "router" and "modularize" y
 
 **Step 1:**, in your server.js file you import your router file(s):
 ```JavaScript  
-    const shoppingListRouter = require('./myListRouter');                         
+    const myListRouter = require('./myListRouter');                         
 ```
 
 **Step 2:**, (still in your server.js file), use "app.use" to route the request to the right ROUTER:
